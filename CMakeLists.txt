@@ -56,9 +56,9 @@ include_directories(config)
 
 #add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples)
 add_subdirectory(examples)
-add_subdirectory(timer)
-add_subdirectory(log)
-add_subdirectory(config)
+#add_subdirectory(timer)
+#add_subdirectory(log)
+#add_subdirectory(config)
 
 
 
