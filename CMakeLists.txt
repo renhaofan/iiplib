@@ -6,6 +6,20 @@ project(iiplib
   LANGUAGES CXX
 )
 
+
+#if(LOGGING)
+#    cmake option
+#    add_definitions("-DLOGGING")
+#endif(LOGGING)
+
+################################################################################
+
+# log info configuration
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGGING") # enable
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
+
+################################################################################
+
 ################################################################################
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -48,9 +62,9 @@ else()
 endif()
 
 # include iiplib libraries
-include_directories(log)
-include_directories(timer)
-include_directories(config)
+#include_directories(log)
+#include_directories(timer)
+#include_directories(config)
 
 ################################################################################
 

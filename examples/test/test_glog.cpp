@@ -8,7 +8,8 @@ using namespace std;
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 
-#define LOGGING
+//#define LOGGING
+//#define LOGTOSTDERR
 
 #define LOG_INFO(...) loginfo(#__VA_ARGS__, __VA_ARGS__)
 template <typename... Args>
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
   boost::filesystem::path dir(FLAGS_log_dir);
   boost::filesystem::create_directory(dir);
   google::InitGoogleLogging(argv[0]);
-#ifdef LOGTOSTDERR
+#ifdef LOGTOSTD
   FLAGS_alsologtostderr =
       true;  // 设置日志消息除了日志文件之外是否输出到标准输出
 #endif
@@ -50,6 +51,6 @@ int main(int argc, char** argv) {
 
   google::ShutdownGoogleLogging();
 #endif
-  cout << "logging " << endl;
+  cout << "----" << endl;
   return 0;
 }
