@@ -13,12 +13,12 @@ Config::~Config() {}
 void Config::print() {
   switch (mode_) {
     case SINGLE_JSON:
-      printf("%s, %d, print config json:\n", __FILE__, __LINE__);
-      std::cout << this->json_ << "\n";
+      std::cout << "\n"<< __FILE__ << ", Line " << __LINE__  << ", print config:\n"
+                << this->json_ << "\n\n";
       break;
     case SINGLE_YAML:
-      printf("%s, %d, print config yaml:\n", __FILE__, __LINE__);
-      std::cout << this->yaml_ << "\n";
+      std::cout << "\n"<< __FILE__ << ", Line " << __LINE__  << ", print config:\n"
+                << this->yaml_ << "\n\n";
       break;
     case SINGLE_BYBRID:
       // TODO

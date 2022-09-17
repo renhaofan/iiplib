@@ -26,7 +26,7 @@ void iiplib::init(int *pargc, char ***pargv, const char* file_name, ConfigMode m
   FLAGS_max_log_size = 16;        // set max log file size(MB)
   FLAGS_stop_logging_if_full_disk = true;  // If disk if full
 
-  LOG(INFO) << "[INFO]     argc :" << *pargc;
+  LOG(INFO) << "[INFO]     argc: " << *pargc;
   LOG(INFO) << "[INFO]     argvs: ";
   for (int i = 0; i < (*pargc); ++i) {
     LOG(INFO) << "[INFO]     argv[" << i << "]: " << (*(pargv))[i];
