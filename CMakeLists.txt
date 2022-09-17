@@ -38,6 +38,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # include modern json C++
 include_directories(3rdparty/json)
 
+# include yaml-cpp
+
+#set(yaml-cpp_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/yaml-cpp/build)
+#find_package(yaml-cpp REQUIRED)
+#include_directories(${YAML_CPP_INCLUDE_DIR})
+
+include_directories(3rdparty/yaml-cpp/include)
+set(YAML_CPP_LIB ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/yaml-cpp/build/libyaml-cpp.so)
 
 # find gflags
 set(gflags_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gflags/build)

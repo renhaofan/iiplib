@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17 FATAL_ERROR)
 set(TGFLAGS test_gflags)
 set(TBOOST test_boost)
 set(TGLOG test_glog)
+set(TYAML test_yaml_cpp)
 
 add_executable(${TGFLAGS} test_gflags.cpp)
 if (GFLAGS_USE_TARGET_NAMESPACE)
@@ -23,3 +24,6 @@ target_link_libraries(${TGLOG} glog ${Boost_LIBRARIES})
 
 add_executable(${TBOOST} test_boost.cpp)
 target_link_libraries(${TBOOST} ${Boost_LIBRARIES})
+
+add_executable(${TYAML} test_yaml_cpp.cpp)
+target_link_libraries(${TYAML} ${YAML_CPP_LIB})
