@@ -12,6 +12,10 @@
 #include "../include/log_timer.h"
 
 namespace iiplib {
+
+extern void init(int* pargc, char*** argv);
+extern void shutdown();
+
 class IIPLEngine {
  public:
   static IIPLEngine* instance_ptr;
