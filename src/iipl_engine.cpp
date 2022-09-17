@@ -8,11 +8,8 @@ iiplib::IIPLEngine* iiplib::IIPLEngine::instance_ptr = nullptr;
 iiplib::IIPLEngine::IIPLEngine() {}
 iiplib::IIPLEngine::~IIPLEngine() {}
 
-void iiplib::IIPLEngine::set_config_mode(iiplib::ConfigMode mode) {
-  this->config_.set_mode(mode);
-}
-
-void iiplib::init(int *pargc, char ***pargv) {
+void iiplib::init(int *pargc, char ***pargv, const char* file_name, ConfigMode mode) {
+  //! log system init
   std::string log_dir = "iipl_log";
   FLAGS_log_dir = "./" + log_dir;
   boost::filesystem::path dir(FLAGS_log_dir);
@@ -34,7 +31,23 @@ void iiplib::init(int *pargc, char ***pargv) {
   for (int i = 0; i < (*pargc); ++i) {
     LOG(INFO) << "[INFO]     argv[" << i << "]: " << (*(pargv))[i];
   }
+
+  //! config system init
+  iiplib::IIPLEngine::instance()->set_config_mode(mode);
+  iiplib::IIPLEngine::instance()->config_init(file_name);
+
 }
 
 void iiplib::shutdown() { google::ShutdownGoogleLogging(); }
 
+void iiplib::IIPLEngine::config_init(const char* file_name) {
+  this->config_.init(file_name);
+}
+
+void iiplib::IIPLEngine::set_config_mode(iiplib::ConfigMode mode) {
+  this->config_.set_mode(mode);
+}
+
+void iiplib::IIPLEngine::print_config() {
+  this->config_.print();
+}

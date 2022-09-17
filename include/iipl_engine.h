@@ -13,7 +13,8 @@
 
 namespace iiplib {
 
-extern void init(int* pargc, char*** argv);
+extern void init(int* pargc, char*** argv, const char* file_name = "",
+                 ConfigMode mode = ConfigMode::SINGLE_JSON);
 extern void shutdown();
 
 class IIPLEngine {
@@ -22,9 +23,7 @@ class IIPLEngine {
   static IIPLEngine* instance(void) {
     if (instance_ptr == nullptr) instance_ptr = new IIPLEngine();
     if (instance_ptr == nullptr) {
-#ifdef LOGGING
       LOG_FATAL("Failed to allocate IIPLEngine pointer memory");
-#endif
       throw "Failed to allocate IIPLEngine pointer memory";
     }
     return instance_ptr;
@@ -33,10 +32,12 @@ class IIPLEngine {
   bool set_json(const char* file_name);
   bool set_yaml(const char* file_name);
   void print_test() {
-    std::cout << "NICE\n";
+    std::cout << "print_test() NICE" << "\n";
   }
 
-  void set_config_mode(iiplib::ConfigMode mode = iiplib::ConfigMode::SINGLE_JSON);
+  void set_config_mode(iiplib::ConfigMode mode);
+  void config_init(const char* file_name);
+  void print_config();
 
   IIPLEngine();
   ~IIPLEngine();

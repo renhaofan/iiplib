@@ -6,7 +6,15 @@
 #include "../../include/log_timer.h"
 
 int main(int argc, char** argv) {
-  iiplib::init(&argc, &argv);
+
+  iiplib::init(&argc, &argv, "config.yaml",
+               iiplib::ConfigMode::SINGLE_YAML);
+
+//  iiplib::init(&argc, &argv, "config.json",
+//               iiplib::ConfigMode::SINGLE_JSON);
+  iiplib::IIPLEngine::instance()->print_config();
+
+//  iiplib::init(&argc, &argv, iiplib::ConfigMode::MODE_NUM);
   log_tic(test);
   iiplib::IIPLEngine::instance()->print_test();
   log_toc(test);

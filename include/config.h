@@ -30,18 +30,21 @@ class Config {
    */
   void print();
 
-  bool json_from_file(const char* file_name, const nlohmann::json& j);
-  bool json_to_file(const char* file_name);
+  bool json_from_file(const char* file_name, nlohmann::json& json);
+  bool json_to_file(const char* file_name, const nlohmann::json& json);
 
-  bool yaml_from_file(const char* file_name);
-  bool yaml_to_file(const char* file_name, YAML::Node yaml);
+  bool yaml_from_file(const char* file_name, YAML::Node& yaml);
+  bool yaml_to_file(const char* file_name, const YAML::Node& yaml);
 
-  void init();
+  void init(const char* file_name);
+  void init(const nlohmann::json& json); // TODO
+  void init(const YAML::Node& yaml); // TODO
+  void init(const YAML::Node& yaml, const nlohmann::json& json); // TODO
 
   void set_mode(ConfigMode mode);
 
  private:
-  ConfigMode mode_;
+  ConfigMode mode_ = ConfigMode::SINGLE_JSON;
   nlohmann::json json_;
   YAML::Node yaml_;
 };
