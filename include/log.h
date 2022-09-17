@@ -10,8 +10,10 @@
 #include <glog/logging.h>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
+#include "log_timer.h"
 
-namespace iiplib {
+
+
 #define LOG_INFO(s) LOG(INFO) << "[INFO]    " << s;
 #define LOG_WARNING(s) LOG(WARNING) << "[WARNING]    " << s;
 #define LOG_ERROR(s) LOG(ERROR) << "[ERROR]    " << s;
@@ -44,6 +46,9 @@ namespace iiplib {
 #define LOG_FATAL_IV(a, b, c, d, e) \
   LOG(FATAL) << "[FATAL]    " << a << b << c << d << e;
 
+
+
+namespace iiplib {
 class Log {
  public:
   void log_init(int* pargc, char*** pargv);
