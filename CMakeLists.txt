@@ -15,7 +15,7 @@ project(iiplib
 ################################################################################
 
 # log info configuration
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGGING") # enable
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGGING") # enable, already remove in code
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
 
 ################################################################################
