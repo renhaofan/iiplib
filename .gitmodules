@@ -6,3 +6,6 @@
 	path = 3rdparty/glog
 	url = https://github.com/google/glog/tree/v0.6.0
 	ignore = dirty
+[submodule "3rdparty/yaml-cpp"]
+	path = 3rdparty/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.7.0
