@@ -30,7 +30,8 @@ make
 
 
 # TODO
-
+* use a single shared library iipl
+* All libraries located in 3rdparty rather than local environement
+* #include<iipl> rather than #include "iipl.h" 
 * https://github.com/gflags/example
-参考这里把库线程download的形式
-* boost & glog into 3rdparty
+  参考这里把库线程download的形式
