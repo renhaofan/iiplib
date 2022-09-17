@@ -19,7 +19,7 @@ void iiplib::init(int *pargc, char ***pargv) {
   boost::filesystem::create_directory(dir);
   google::InitGoogleLogging(*(pargv)[0]);
   std::cout << "Log file located in "
-            << "EXECUTABLE_OUTPUT_PATH" << "\n";
+            << "${EXECUTABLE_OUTPUT_PATH}/" << log_dir << "\n";
   ;
 #ifdef LOGTOSTD
   FLAGS_alsologtostderr = true;

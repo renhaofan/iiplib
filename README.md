@@ -30,8 +30,10 @@ make
 
 
 # TODO
+* write json and yaml cpp, then test. NOTICE judege the config mode
 * use a single shared library iipl
 * All libraries located in 3rdparty rather than local environement
+* gtest????
 * #include<iipl> rather than #include "iipl.h" 
 * https://github.com/gflags/example
   参考这里把库线程download的形式
