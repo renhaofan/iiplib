@@ -3,6 +3,7 @@ set(TGFLAGS test_gflags)
 set(TBOOST test_boost)
 set(TGLOG test_glog)
 set(TYAML test_yaml_cpp)
+set(TIIPL test_iipl)
 
 add_executable(${TGFLAGS} test_gflags.cpp)
 if (GFLAGS_USE_TARGET_NAMESPACE)
@@ -27,3 +28,10 @@ target_link_libraries(${TBOOST} ${Boost_LIBRARIES})
 
 add_executable(${TYAML} test_yaml_cpp.cpp)
 target_link_libraries(${TYAML} ${YAML_CPP_LIB})
+
+add_executable(${TIIPL} test_iipl.cpp)
+target_link_libraries(${TIIPL}
+        ${Boost_LIBRARIES}
+        gflags
+        glog
+        iipl)

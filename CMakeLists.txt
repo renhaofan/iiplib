@@ -78,12 +78,19 @@ endif()
 
 #add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples)
 add_subdirectory(examples)
-#add_subdirectory(timer)
-#add_subdirectory(log)
-#add_subdirectory(config)
 
+set(HEADERS
+        include/config.h
+        include/iipl_engine.h
+        include/log.h
+        include/log_timer.h)
 
+set(SOURCES
+        src/config.cpp
+        src/iipl_engine.cpp
+        src/log.cpp)
 
+add_library(iipl SHARED ${HEADERS} ${SOURCES})
 
 #CMake Error at CMakeLists.txt:16 (find_package):
 #By not providing "Findglog.cmake" in CMAKE_MODULE_PATH this project has

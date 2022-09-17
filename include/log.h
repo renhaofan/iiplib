@@ -12,10 +12,6 @@
 #include <boost/filesystem/fstream.hpp>
 
 namespace iiplib {
-
-extern void log_init(int* pargc, char*** pargv);
-extern void log_shutdown();
-
 #define LOG_INFO(s) LOG(INFO) << "[INFO]    " << s;
 #define LOG_WARNING(s) LOG(WARNING) << "[WARNING]    " << s;
 #define LOG_ERROR(s) LOG(ERROR) << "[ERROR]    " << s;
@@ -47,6 +43,13 @@ extern void log_shutdown();
   LOG(ERROR) << "[ERROR]    " << a << b << c << d << e;
 #define LOG_FATAL_IV(a, b, c, d, e) \
   LOG(FATAL) << "[FATAL]    " << a << b << c << d << e;
+
+class Log {
+ public:
+  void log_init(int* pargc, char*** pargv);
+  void log_shutdown();
+};
+
 }
 
 #endif //IIPLIB_LOG_LOG_H_

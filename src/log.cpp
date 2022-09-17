@@ -3,8 +3,7 @@
 //
 #include "../include/log.h"
 
-namespace iipllib {
-void log_init(int *pargc, char ***pargv) {
+void iiplib::Log::log_init(int *pargc, char ***pargv) {
   std::string log_dir = "iipl_log";
   FLAGS_log_dir = "./" + log_dir;
   boost::filesystem::path dir(FLAGS_log_dir);
@@ -28,5 +27,4 @@ void log_init(int *pargc, char ***pargv) {
   }
 }
 
-void shutdown() { google::ShutdownGoogleLogging(); }
-}
+void iiplib::Log::log_shutdown() { google::ShutdownGoogleLogging(); }
