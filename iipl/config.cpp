@@ -2,8 +2,8 @@
 // Created by steve on 9/17/22.
 //
 
-#include "../include/config.h"
-#include "../include/log.h"
+#include "config.h"
+#include "log.h"
 #include <fstream>
 
 using namespace iiplib;

@@ -1,7 +1,7 @@
 //
 // Created by steve on 9/17/22.
 //
-#include "../include/iipl_engine.h"
+#include "iipl_engine.h"
 
 iiplib::IIPLEngine* iiplib::IIPLEngine::instance_ptr = nullptr;
 

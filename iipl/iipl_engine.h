@@ -7,9 +7,9 @@
 
 #ifndef IIPLIB_INCLUDE_IIPL_ENGINE_H_
 #define IIPLIB_INCLUDE_IIPL_ENGINE_H_
-#include "../include/config.h"
-#include "../include/log.h"
-#include "../include/log_timer.h"
+#include "config.h"
+#include "log.h"
+#include "log_timer.h"
 
 namespace iiplib {
 
