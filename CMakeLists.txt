@@ -70,6 +70,8 @@ else()
 endif()
 
 # include iiplib libraries
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 #include_directories(log)
 #include_directories(timer)
 #include_directories(config)

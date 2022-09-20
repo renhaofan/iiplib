@@ -37,3 +37,4 @@ make
 * #include<iipl> rather than #include "iipl.h" 
 * https://github.com/gflags/example
   参考这里把库线程download的形式
+* https://www.jianshu.com/p/ab7a94115d10
