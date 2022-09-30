@@ -11,6 +11,7 @@ set(${PROJECT_NAME}_HEADERS
         ../include/iipl_engine.h
         ../include/log_timer.h
         ../include/log.h
+        ../3rdparty/json/json.hpp
         )
 
 set(${PROJECT_NAME}_SOURCES
@@ -47,7 +48,7 @@ install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib
         RUNTIME DESTINATION bin
-        PUBLIC_HEADER DESTINATION include)
+        PUBLIC_HEADER DESTINATION include/iipl)
 
 # Generate library version info which will generate xxxConfigVersion.cmake,
 # the ${PACKAGE_VERSION} is the version defined in project()

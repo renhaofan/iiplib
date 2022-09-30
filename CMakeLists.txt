@@ -81,7 +81,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 #add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples)
 add_subdirectory(examples)
 
-add_subdirectory(3rdparty)
+#add_subdirectory(3rdparty)
 add_subdirectory(iipl)
 
 #set(HEADERS
