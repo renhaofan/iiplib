@@ -34,8 +34,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Boost_LIBRARIES}
-		/usr/local/lib/libyaml-cpp.so
-#		${YAML_CPP_LIBRARIES}
+		#/usr/local/lib/libyaml-cpp.so
+		yaml-cpp
         gflags
         glog)
 

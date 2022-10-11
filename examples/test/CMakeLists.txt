@@ -27,19 +27,7 @@ add_executable(${TBOOST} test_boost.cpp)
 target_link_libraries(${TBOOST} ${Boost_LIBRARIES})
 
 add_executable(${TYAML} test_yaml_cpp.cpp)
-#target_link_libraries(${TYAML} 	${YAML_CPP_LIBRARIES})
-#target_link_libraries(${TYAML} 	yaml-cpp)
-target_link_libraries(${TYAML}
-        /usr/local/lib/libyaml-cpp.so
-        )
+target_link_libraries(${TYAML} yaml-cpp)
 
-#add_executable(${TIIPL} test_iipl.cpp)
-#target_link_libraries(${TIIPL}
-#        ${Boost_LIBRARIES}
-#        ${YAML_CPP_LIB}
-#        gflags
-#        glog
-#        iipl)
 add_executable(${TIIPL} test_iipl.cpp)
-target_link_libraries(${TIIPL}
-        iipl)
+target_link_libraries(${TIIPL} iipl)
