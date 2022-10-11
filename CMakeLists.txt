@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.17 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(iiplib
   VERSION 0.0.0
   DESCRIPTION "IIPL lab C++ utilis moduel, include logging, timer..."
-  HOMEPAGE_URL https://github.com/renhaofan/iiplib
   LANGUAGES CXX
 )
 
@@ -12,49 +11,33 @@ project(iiplib
 #    add_definitions("-DLOGGING")
 #endif(LOGGING)
 
-################################################################################
 
-# log info configuration
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGGING") # enable, already remove in code
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
 
-################################################################################
 
-################################################################################
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-################################################################################
 
 
-################################################################################
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-################################################################################
 
 
-################################################################################
 # include modern json C++
 include_directories(3rdparty/json)
 
 # include yaml-cpp
+find_package(yaml-cpp REQUIRED)
+include_directories(${YAML_CPP_INCLUDE_DIR})
 
-#set(yaml-cpp_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/yaml-cpp/build)
-#find_package(yaml-cpp REQUIRED)
-#include_directories(${YAML_CPP_INCLUDE_DIR})
-
-include_directories(3rdparty/yaml-cpp/include)
-set(YAML_CPP_LIB ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/yaml-cpp/build/libyaml-cpp.so)
 
 # find gflags
-set(gflags_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gflags/build)
 find_package(gflags REQUIRED)
 include_directories(${GFLAGS_INCLUDE_DIRS})
 
 # sudo apt install libgoogle-glog-dev
-# [TODO] change glog used in 3rdparty, now is apt installation
-#set(glog_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glog/build)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(glog REQUIRED libglog)
 include_directories(${GLOG_INCLUDE_DIRS})
@@ -72,50 +55,5 @@ endif()
 # include iiplib libraries
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-#include_directories(log)
-#include_directories(timer)
-#include_directories(config)
-
-################################################################################
-
-#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples)
 add_subdirectory(examples)
-
-#add_subdirectory(3rdparty)
 add_subdirectory(iipl)
-
-#set(HEADERS
-#        include/config.h
-#        include/iipl_engine.h
-#        include/log.h
-#        include/log_timer.h)
-#
-#set(SOURCES
-#        src/config.cpp
-#        src/iipl_engine.cpp
-#        src/log.cpp)
-#
-#add_library(iipl SHARED ${HEADERS} ${SOURCES})
-
-#CMake Error at CMakeLists.txt:16 (find_package):
-#By not providing "Findglog.cmake" in CMAKE_MODULE_PATH this project has
-#asked CMake to find a package configuration file provided by "glog", but
-#CMake did not find one.
-#
-#Could not find a package configuration file provided by "glog" with any of
-#the following names:
-#
-#glogConfig.cmake
-#glog-config.cmake
-#
-#Add the installation prefix of "glog" to CMAKE_PREFIX_PATH or set
-#"glog_DIR" to a directory containing one of the above files.  If "glog"
-#provides a separate development package or SDK, be sure it has been
-#installed.
-
-# useful command maybe
-#set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-#list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
-#find_package(glog REQUIRED)
-
-#cmake --help-command link_directories

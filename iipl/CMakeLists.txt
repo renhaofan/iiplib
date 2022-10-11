@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
 get_filename_component(MODULE_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 #set(PROJECT_NAME "iipl_${MODULE_NAME}")
@@ -34,7 +34,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Boost_LIBRARIES}
-        ${YAML_CPP_LIB}
+		/usr/local/lib/libyaml-cpp.so
+#		${YAML_CPP_LIBRARIES}
         gflags
         glog)
 

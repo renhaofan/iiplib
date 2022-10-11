@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "yaml-cpp/yaml.h"
+#include <yaml-cpp/yaml.h>
 #include <fstream>
 
 using namespace std;
@@ -12,7 +12,7 @@ int main(int argc,char** argv)
 {
   YAML::Node config;
   try{
-    config = YAML::LoadFile("config.yaml");
+    config = YAML::LoadFile("/home/steve/code/mycode/iiplib/examples/test/config.yaml");
   } catch(YAML::BadFile &e) {
     std::cout<<"read error!"<<std::endl;
     return -1;
