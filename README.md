@@ -30,6 +30,12 @@ make
 
 
 # TODO
+* make uninstall
+* enable -logtostd after installed
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
+```
+
 * write json and yaml cpp, then test. NOTICE judege the config mode
 * use a single shared library iipl
 * All libraries located in 3rdparty rather than local environement
