@@ -1,5 +1,8 @@
 # iiplib
 
+# install
+
+# 3rdparty
 ```
 set -e
 cd 3rdparty
@@ -30,7 +33,7 @@ make
 
 
 # TODO
-* make uninstall
+* ~~make uninstall~~
 * enable -logtostd after installed
 ```
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
@@ -44,3 +47,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
 * https://github.com/gflags/example
   参考这里把库线程download的形式
 * https://www.jianshu.com/p/ab7a94115d10
+* https://blog.csdn.net/weixin_43742643/article/details/115293427

@@ -70,3 +70,15 @@ configure_package_config_file(
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
         ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
         DESTINATION "lib/cmake/${PROJECT_NAME}")
+
+
+# uninstall target
+# This will not remove empty directories which may have been created by the install
+add_custom_target("uninstall" COMMENT "Uninstall installed files")
+add_custom_command(
+    TARGET "uninstall"
+    POST_BUILD
+    COMMENT "Uninstall files with install_manifest.txt"
+    COMMAND xargs rm -vrf <  ${CMAKE_BINARY_DIR}/install_manifest.txt || echo Nothing in
+            install_manifest.txt to be uninstalled!
+)
