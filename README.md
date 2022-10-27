@@ -1,35 +1,36 @@
 # iiplib
 
-# install
-
-# 3rdparty
+# 安装 
 ```
-set -e
-cd 3rdparty
-git clone -b v0.6.0 https://github.com/google/glog
-git clone -b v2.2.2 https://github.com/gflags/gflags.git
-git clone -b yaml-cpp-0.7.0 https://github.com/jbeder/yaml-cpp.git
-
-## ERROR
-cd glog
-cmake -B build
-cmake --build build
-cd ..
-
-## PASS
-cd gflags
-cmake -B build
-cmake --build build
-cd ..
-
-## PASS
-cd yaml-cpp
-mkdir build 
-cd build
-cmake -DYAML_BUILD_SHARED_LIBS=ON ..
-make
-
+bash install.sh
 ```
+
+# 使用
+```CMake
+# CMakelist.txt
+find_package(iipl)
+add_executable(find_iipl main.cpp)
+target_link_libraries(find_iipl iipl)
+```
+
+```cpp
+// main.cpp
+int main(int argc, char** argv) {
+
+  iiplib::init(&argc, &argv);
+
+
+  log_tic(test);
+  iiplib::IIPLEngine::instance()->print_test();
+  log_toc(test);
+
+  LOG_WARNING("this is warning");
+  LOG_ERROR("this is error");
+
+  iiplib::shutdown();
+}
+```
+
 
 
 # TODO
