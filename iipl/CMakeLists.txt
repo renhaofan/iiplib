@@ -7,7 +7,6 @@ message(STATUS "${PROJECT_NAME}")
 project(${PROJECT_NAME} VERSION 0.0.0)
 
 set(${PROJECT_NAME}_HEADERS
-        ../include/config.h
         ../include/iipl_engine.h
         ../include/log_timer.h
         ../include/log.h
@@ -15,8 +14,7 @@ set(${PROJECT_NAME}_HEADERS
         )
 
 set(${PROJECT_NAME}_SOURCES
-        config.cpp
-        iipl_engine.cpp
+		iipl_engine.cpp
         log.cpp
         )
 

@@ -7,14 +7,12 @@
 
 #ifndef IIPLIB_INCLUDE_IIPL_ENGINE_H_
 #define IIPLIB_INCLUDE_IIPL_ENGINE_H_
-#include "config.h"
 #include "log.h"
 #include "log_timer.h"
 
 namespace iiplib {
 
-extern void init(int* pargc, char*** argv, const char* file_name = "",
-                 ConfigMode mode = ConfigMode::SINGLE_JSON);
+extern void init(int* pargc, char*** argv);
 extern void shutdown();
 
 class IIPLEngine {
@@ -29,21 +27,14 @@ class IIPLEngine {
     return instance_ptr;
   }
 
-  bool set_json(const char* file_name);
-  bool set_yaml(const char* file_name);
   void print_test() {
     std::cout << "print_test() NICE" << "\n";
   }
-
-  void set_config_mode(iiplib::ConfigMode mode);
-  void config_init(const char* file_name);
-  void print_config();
 
   IIPLEngine();
   ~IIPLEngine();
 
  private:
-  Config config_;
   Log log_;
 };
 }
