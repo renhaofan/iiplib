@@ -1,5 +1,7 @@
 /*
- * This is a example for IIPL::Log usage, 
+ * This is a example for IIPL::Log usage. 
+ * If you want to print log to standard terminal, #define LOGTOSTD before #include<iipl/log.h>
+   Otherwise, log will not display in the terminal, only saved in `iipl_log` folder.
 */
 
 #define LOGTOSTD
