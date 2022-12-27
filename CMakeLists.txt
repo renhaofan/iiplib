@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(iipl
-  VERSION 0.0.0
+  VERSION 0.0.1
   DESCRIPTION "IIPL lab C++ utilis moduel, include logging, timer..."
   LANGUAGES CXX
 )
@@ -41,5 +41,5 @@ endif()
 # include IIPL libraries
 # include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include/iipl)
 
-# add_subdirectory(examples)
 add_subdirectory(src)
+add_subdirectory(examples)
