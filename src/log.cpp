@@ -1,7 +1,7 @@
 //
 // Created by steve on 9/16/22.
 //
-#include "log.h"
+#include <iipl/log.h>
 
 void iiplib::Log::log_init(int *pargc, char ***pargv) {
   std::string log_dir = "iipl_log";

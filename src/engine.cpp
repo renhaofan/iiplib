@@ -1,7 +1,7 @@
 //
 // Created by steve on 9/17/22.
 //
-#include "iipl_engine.h"
+#include <iipl/engine.h>
 
 iiplib::IIPLEngine* iiplib::IIPLEngine::instance_ptr = nullptr;
 
@@ -17,14 +17,16 @@ void iiplib::init(int *pargc, char ***pargv) {
   google::InitGoogleLogging(*(pargv)[0]);
   std::cout << "Log file located in "
             << "${EXECUTABLE_OUTPUT_PATH}/" << log_dir << "\n";
-  ;
 #ifdef LOGTOSTD
   FLAGS_alsologtostderr = true;
 #endif
   FLAGS_colorlogtostderr = true;  // set log color if termimal supports.
   FLAGS_logbufsecs = 0;           // set log output speed(s)
-  FLAGS_max_log_size = 16;        // set max log file size(MB)
-  FLAGS_stop_logging_if_full_disk = true;  // If disk if full
+
+  // TODO: after making install, error occours:
+  // engine.cpp:(.text+0x13e): undefined reference to `fLU::FLAGS_max_log_size'
+  // // FLAGS_max_log_size = 16;        // set max log file size(MB)
+  // FLAGS_stop_logging_if_full_disk = true;  // If disk if full
 
   LOG(INFO) << "[INFO]     argc: " << *pargc;
   for (int i = 0; i < (*pargc); ++i) {

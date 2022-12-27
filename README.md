@@ -6,36 +6,19 @@ bash install.sh
 ```
 
 # 使用
-```CMake
-# CMakelist.txt
-find_package(iipl)
-add_executable(find_iipl main.cpp)
-target_link_libraries(find_iipl iipl)
-```
-
-```cpp
-// main.cpp
-int main(int argc, char** argv) {
-
-  iiplib::init(&argc, &argv);
-
-
-  log_tic(test);
-  iiplib::IIPLEngine::instance()->print_test();
-  log_toc(test);
-
-  LOG_WARNING("this is warning");
-  LOG_ERROR("this is error");
-
-  iiplib::shutdown();
-}
-```
+见test文件夹
 
 
 
 # TODO
+* // TODO: after making install, error occours:
+  // engine.cpp:(.text+0x13e): undefined reference to `fLU::FLAGS_max_log_size'
+  // // FLAGS_max_log_size = 16;        // set max log file size(MB)
+  // FLAGS_stop_logging_if_full_disk = true;  // If disk if full
+* install glog gflag in cmake
+* marco LOGTOSTD not work
 * ~~make uninstall~~
-* enable -logtostd after installed
+* ~~enable -logtostd after installed~~
 ```
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
 ```

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
-project(iiplib
+project(iipl
   VERSION 0.0.0
   DESCRIPTION "IIPL lab C++ utilis moduel, include logging, timer..."
   LANGUAGES CXX
@@ -12,7 +12,7 @@ project(iiplib
 #endif(LOGGING)
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -24,20 +24,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-
-# include modern json C++
-include_directories(3rdparty/json)
-
-# include yaml-cpp
-find_package(yaml-cpp REQUIRED)
-include_directories(${YAML_CPP_INCLUDE_DIR})
-
-
-# find gflags
-find_package(gflags REQUIRED)
-include_directories(${GFLAGS_INCLUDE_DIRS})
-
-# sudo apt install libgoogle-glog-dev
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(glog REQUIRED libglog)
 include_directories(${GLOG_INCLUDE_DIRS})
@@ -53,7 +39,7 @@ else()
 endif()
 
 # include iiplib libraries
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include/iipl)
 
-add_subdirectory(examples)
-add_subdirectory(iipl)
+# add_subdirectory(examples)
+add_subdirectory(src)

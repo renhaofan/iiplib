@@ -1,46 +1,39 @@
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+# include(FetchContent)
 
-get_filename_component(MODULE_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-#set(PROJECT_NAME "iipl_${MODULE_NAME}")
-set(PROJECT_NAME "${MODULE_NAME}")
-message(STATUS "${PROJECT_NAME}")
-project(${PROJECT_NAME} VERSION 0.0.0)
+# FetchContent_Declare(
+#     glog 
+#     GIT_REPOSITORY https://github.com/google/glog
+#     GIT_TAG v0.6.0-rc2
+# )
 
-set(${PROJECT_NAME}_HEADERS
-        ../include/iipl_engine.h
-        ../include/log_timer.h
-        ../include/log.h
-        ../3rdparty/json/json.hpp
-        )
+# FetchContent_MakeAvailable(glog)
 
-set(${PROJECT_NAME}_SOURCES
-		iipl_engine.cpp
-        log.cpp
-        )
+# add_library(glog::glog INTERFACE IMPORTED)
+# target_link_libraries(glog::glog INTERFACE gtest_main)
 
-#aux_source_directory(. DIR_SRCS)
-#add_library(${PROJECT_NAME} SHARED ${DIR_SRCS})
-add_library(${PROJECT_NAME} STATIC
-        ${${PROJECT_NAME}_SOURCES}
-        ${${PROJECT_NAME}_HEADERS}
-        )
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>)
 
+#------------------------------------------
+add_library(${PROJECT_NAME} engine.cpp log.cpp)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# CMake Error: "iiplib/src/include" which is prefixed in the source dirctory.
+# target_include_directories(${PROJECT_NAME} PUBLIC include)
+# target_include_directories(${PROJECT_NAME} PUBLIC
+        # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        # $<INSTALL_INTERFACE:include>)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Boost_LIBRARIES}
-		#/usr/local/lib/libyaml-cpp.so
-		yaml-cpp
-        gflags
         glog)
 
 # ------------------------------- install script -------------------------------
 # Prepare exposed headers
-
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${${PROJECT_NAME}_HEADERS}")
+set(HEADERS 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/engine.h
+	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/log_timer.h
+	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/log.h)
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${HEADERS}")
 
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}Targets

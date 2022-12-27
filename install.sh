@@ -7,18 +7,8 @@
 # Brief: install iipllib
 #########################################################################
 set -e
-sudo apt install -y libboost-all-dev libgoogle-glog-dev libgflags-dev
-
-
+sudo apt update
+sudo apt install -y libboost-all-dev libgoogle-glog-dev
 cmake -B build
 cmake --build build
 sudo make install
-#git clone -b yaml-cpp-0.7.0 https://github.com/jbeder/yaml-cpp.git
-#cd yaml-cpp
-#mkdir build
-#cd build
-#cmake -DYAML_BUILD_SHARED_LIBS=ON ..
-#make
-#sudo make install
-
-
