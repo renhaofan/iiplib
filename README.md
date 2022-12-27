@@ -1,12 +1,13 @@
-# iiplib
+# IIPL
 
 # 安装 
 ```
 bash install.sh
 ```
 
-# 使用
-见test文件夹
+# Examples 
+See test
+
 
 
 
@@ -16,10 +17,8 @@ bash install.sh
   // // FLAGS_max_log_size = 16;        // set max log file size(MB)
   // FLAGS_stop_logging_if_full_disk = true;  // If disk if full
 * install glog gflag in cmake
-* marco LOGTOSTD not work
-```
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOGTOSTD") # print to std
-```
+* Add examples
+* ~~marco LOGTOSTD not work~~
 * ~~make uninstall~~
 * ~~enable -logtostd after installed~~
 

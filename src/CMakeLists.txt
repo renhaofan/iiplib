@@ -17,7 +17,7 @@
 add_library(${PROJECT_NAME} engine.cpp log.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# CMake Error: "iiplib/src/include" which is prefixed in the source dirctory.
+# CMake Error: "IIPL/src/include" which is prefixed in the source dirctory.
 # target_include_directories(${PROJECT_NAME} PUBLIC include)
 # target_include_directories(${PROJECT_NAME} PUBLIC
         # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

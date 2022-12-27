@@ -2,8 +2,8 @@
 // Created by steve on 9/16/22.
 //
 
-#ifndef IIPLIB_LOG_TIMER_H_
-#define IIPLIB_LOG_TIMER_H_
+#ifndef IIPL_LOG_TIMER_H_
+#define IIPL_LOG_TIMER_H_
 
 #include <iostream>
 #include <chrono>
@@ -21,4 +21,4 @@
     LOG_INFO_IV("Timer ", #NAME, ": ", (d) * 1000, "ms"); \
   }
 
-#endif //IIPLIB_LOG_TIMER_H_
+#endif //IIPL_LOG_TIMER_H_

@@ -2,8 +2,8 @@
 // Created by steve on 9/16/22.
 //
 
-#ifndef IIPLIB_LOG_LOG_H_
-#define IIPLIB_LOG_LOG_H_
+#ifndef IIPL_LOG_LOG_H_
+#define IIPL_LOG_LOG_H_
 
 #include <chrono>
 #include <iostream>
@@ -47,14 +47,30 @@
   LOG(FATAL) << "[FATAL]    " << a << b << c << d << e;
 
 
+namespace IIPL {
 
-namespace iiplib {
+
 class Log {
  public:
-  void log_init(int* pargc, char*** pargv);
-  void log_shutdown();
+  static Log* instance_ptr;
+  static Log* instance(void) {
+    if (instance_ptr == nullptr) instance_ptr = new Log();
+    if (instance_ptr == nullptr) {
+      throw "Failed to allocate Log pointer memory";
+    }
+    return instance_ptr;
+  }
+
+  void shutdown();
+  void init(int pargc, char*** pargv);
+
+#ifdef LOGTOSTD
+  char logtostd = 'y';
+#else
+  char logtostd = 'n';
+#endif
 };
 
 }
 
-#endif //IIPLIB_LOG_LOG_H_
+#endif //IIPL_LOG_LOG_H_
