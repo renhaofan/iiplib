@@ -1,7 +1,0 @@
-Log file created at: 2022/12/27 18:28:50
-Running on machine: iipl-156
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I1227 18:28:50.873929 30275 engine.cpp:28] [INFO]     argc: 1
-I1227 18:28:50.874194 30275 engine.cpp:30] [INFO]     argv[0]: ./build/bin/test
-I1227 18:28:50.874226 30275 test.cpp:9] [INFO]    Timer test: 0.012517ms
-I1227 18:28:50.874266 30275 test.cpp:10] [INFO]    A
