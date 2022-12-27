@@ -1,15 +1,32 @@
 # IIPL
+This is encapsule of glog offering cross-file function.
 
-# 安装 
+In the future, I will import json parser and something else.
+So far, only cross-file log function is supplied.
+
+# Install
+
 ```
 bash install.sh
 ```
 
-# Examples 
-See test
+# Useage
+After installation, a simple demo by CMakelists.txt:
+```
+find_package(iipl REQUIRED)
+
+if(iipl_FOUND)
+    message(STATUS "iipl found")
+else()
+    message(STATUS "iipl not found")
+endif()
 
 
+add_executable(test test.cpp)
+target_link_libraries(test iipl)
+```
 
+See more details on run it in test folder.
 
 # TODO
 * // TODO: after making install, error occours:
@@ -22,7 +39,6 @@ See test
 * ~~make uninstall~~
 * ~~enable -logtostd after installed~~
 
-* https://github.com/gflags/example
-  参考这里把库线程download的形式
-* https://www.jianshu.com/p/ab7a94115d10
-* https://blog.csdn.net/weixin_43742643/article/details/115293427
+# Reference
+* [CMake install scripts](https://www.jianshu.com/p/ab7a94115d10)
+* [CMake uninstall](https://blog.csdn.net/weixin_43742643/article/details/115293427)
