@@ -38,6 +38,8 @@ else()
     message(STATUS "Boost not found")
 endif()
 
+configure_file(IIPLConfig.h.in IIPLConfig.h)
+
 # include IIPL libraries
 # include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include/iipl)
 

@@ -32,7 +32,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 set(HEADERS 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/engine.h
 	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/log_timer.h
-	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/log.h)
+	${CMAKE_CURRENT_SOURCE_DIR}/include/iipl/log.h
+        ${PROJECT_BINARY_DIR}/IIPLConfig.h
+        )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${HEADERS}")
 
 install(TARGETS ${PROJECT_NAME}
