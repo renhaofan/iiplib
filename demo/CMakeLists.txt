@@ -20,5 +20,5 @@ else()
 endif()
 
 
-add_executable(test test.cpp)
-target_link_libraries(test iipl)
+add_executable(demo demo.cpp)
+target_link_libraries(demo iipl)
