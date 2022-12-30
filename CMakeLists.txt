@@ -44,4 +44,4 @@ configure_file(IIPLConfig.h.in IIPLConfig.h)
 # include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include/iipl)
 
 add_subdirectory(src)
-add_subdirectory(examples)
+add_subdirectory(tutorial_code)
