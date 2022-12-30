@@ -10,7 +10,7 @@ So far, only cross-file log function is supplied.
 bash install.sh
 ```
 
-# Useage
+# Usage
 After installation, a simple demo by CMakelists.txt:
 ```
 find_package(iipl REQUIRED)
